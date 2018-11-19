@@ -5,15 +5,19 @@
  */
 package ModernBuildings;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  *
  * @author Yourk
  */
 public class TemperatureSensor extends Sensor {
     private double temperature;
-
+    
     public TemperatureSensor() {
         super();
+        this.temperature = ThreadLocalRandom.current().nextDouble(18.0, 24.0);
     }
 
     public double getTemperature() {

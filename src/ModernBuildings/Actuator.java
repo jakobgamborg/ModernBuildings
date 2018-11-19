@@ -28,12 +28,20 @@ public class Actuator {
         this.id = id;
     }
 
-    public boolean isIsOpen() {
+    public boolean isOpen() {
         return isOpen;
     }
 
     public void setIsOpen(boolean isOpen) {
         this.isOpen = isOpen;
+    }
+    
+    public void open() {
+        this.isOpen = true;
+    }
+    
+    public void close() {
+        this.isOpen = false;
     }
     
 }
