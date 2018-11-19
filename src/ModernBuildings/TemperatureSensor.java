@@ -9,6 +9,19 @@ package ModernBuildings;
  *
  * @author Yourk
  */
-public class TemperatureSensor {
+public class TemperatureSensor extends Sensor {
+    private double temperature;
+
+    public TemperatureSensor() {
+        super();
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
     
 }

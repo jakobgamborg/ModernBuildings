@@ -11,15 +11,11 @@ import java.util.UUID;
  *
  * @author Yourk
  */
-public class Sensor {
+public class Rule {
     private UUID id;
 
-    public Sensor() {
+    public Rule() {
         this.id = UUID.randomUUID();
-    }
-
-    public UUID getId() {
-        return id;
     }
     
 }

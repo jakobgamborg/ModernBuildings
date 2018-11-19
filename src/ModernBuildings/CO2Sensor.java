@@ -9,6 +9,20 @@ package ModernBuildings;
  *
  * @author Yourk
  */
-public class CO2Sensor {
+public class CO2Sensor extends Sensor{
+    private double levelCO2;
+
+    public CO2Sensor() {
+        super();
+    }
+
+    public double getLevelCO2() {
+        return levelCO2;
+    }
+
+    public void setLevelCO2(double levelCO2) {
+        this.levelCO2 = levelCO2;
+    }
+    
     
 }
