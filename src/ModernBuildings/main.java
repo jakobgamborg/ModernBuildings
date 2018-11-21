@@ -1,5 +1,6 @@
 package ModernBuildings;
 
+import Database.Database;
 import java.util.Arrays;
 
 public class main {
@@ -33,5 +34,10 @@ public class main {
         });
         building.getEvents().forEach((event) -> System.out.println(event.getTimeStamp() + " outofbounds " + event.isIsOutOfBounds()));
         building.getActuators().forEach(actuator -> System.out.println(actuator.isOpen()));
+        
+        Database db = new Database();
+        db.addBuilding(building);
+        
+        db.printBuildings();
     }
 }

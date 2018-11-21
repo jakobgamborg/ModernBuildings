@@ -15,7 +15,11 @@ import java.util.List;
  */
 public class Database {
     private List<Building> buildings = new ArrayList<>();
+    
+    public Database() {
+    }
 
+    
     public Database(List<Building> buildings) {
         this.buildings = buildings;
     }
