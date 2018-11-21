@@ -67,18 +67,34 @@ public class Building {
         return sensors;
     }
 
-    public void setSensors(List<Sensor> sensors) {
-        this.sensors = sensors;
+    public void addSensors(List<Sensor> sensors) {
+        this.sensors.addAll(sensors);
+    }
+    
+    public void addSensor(Sensor sensor) {
+        this.sensors.add(sensor);
     }
 
+    public void removeSensor(UUID id) {
+        this.sensors.removeIf((sensor)-> sensor.getId() == id);
+    }
+    
     public List<Actuator> getActuators() {
         return actuators;
     }
 
-    public void setActuators(List<Actuator> actuators) {
-        this.actuators = actuators;
+    public void addActuators(List<Actuator> actuators) {
+        this.actuators.addAll(actuators);
     }
-
+    
+    public void addActuator(Actuator actuator) {
+        this.actuators.add(actuator);
+    }
+    
+    public void removeActuator(UUID id) {
+        this.actuators.removeIf((actuator)->actuator.getId() == id);
+    }
+    
     public CO2Rule getcO2Rule() {
         return cO2Rule;
     }

@@ -22,8 +22,8 @@ public class main {
         Actuator ventilation = new Actuator(false);
         
         Building building = new Building("u140", "Campusvej 55, bygning 38", cO2Rule1, temperatureRule1);
-        building.setSensors(Arrays.asList(temperatureSensor1, temperatureSensor2, temperatureSensor3, cO2Sensor1, cO2Sensor2, cO2Sensor3));
-        building.setActuators(Arrays.asList(window, door, ventilation));
+        building.addSensors(Arrays.asList(temperatureSensor1, temperatureSensor2, temperatureSensor3, cO2Sensor1, cO2Sensor2, cO2Sensor3));
+        building.addActuators(Arrays.asList(window, door, ventilation));
         
         building.checkTemperatureLimits();
         building.getSensors().forEach((sensor) -> { 
