@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AppController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.AppController">
+   <children>
+      <ListView fx:id="buildingId" layoutX="10.0" layoutY="11.0" prefHeight="378.0" prefWidth="164.0" />
+      <ListView fx:id="sensorId" layoutX="222.0" layoutY="27.0" prefHeight="200.0" prefWidth="131.0" />
+      <ListView fx:id="actuactorId" layoutX="407.0" layoutY="27.0" prefHeight="200.0" prefWidth="144.0" />
+      <ListView fx:id="rulesId" layoutX="222.0" layoutY="248.0" prefHeight="140.0" prefWidth="131.0" />
+      <ListView fx:id="eventsId" layoutX="407.0" layoutY="254.0" prefHeight="140.0" prefWidth="144.0" />
+   </children>
 </AnchorPane>
