@@ -71,8 +71,9 @@ public class Building {
         this.sensors.addAll(sensors);
     }
     
-    public void addSensor(Sensor sensor) {
+    public UUID addSensor(Sensor sensor) {
         this.sensors.add(sensor);
+        return sensor.getId();
     }
 
     public void removeSensor(UUID id) {
@@ -87,8 +88,9 @@ public class Building {
         this.actuators.addAll(actuators);
     }
     
-    public void addActuator(Actuator actuator) {
+    public UUID addActuator(Actuator actuator) {
         this.actuators.add(actuator);
+        return actuator.getId();
     }
     
     public void removeActuator(UUID id) {

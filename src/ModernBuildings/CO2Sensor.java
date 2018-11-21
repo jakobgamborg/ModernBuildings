@@ -12,8 +12,8 @@ package ModernBuildings;
 public class CO2Sensor extends Sensor{
     private double levelCO2;
 
-    public CO2Sensor() {
-        super();
+    public CO2Sensor(String name) {
+        super(name);
     }
 
     public double getLevelCO2() {

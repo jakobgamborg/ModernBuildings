@@ -13,10 +13,12 @@ import java.util.UUID;
  */
 public class Actuator {
     private UUID id;
+    private String name;
     private boolean isOpen;
 
-    public Actuator(boolean isOpen) {
+    public Actuator(boolean isOpen, String name) {
         this.id = UUID.randomUUID();
+        this.name = name;
         this.isOpen = isOpen;
     }
 
@@ -26,6 +28,14 @@ public class Actuator {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isOpen() {

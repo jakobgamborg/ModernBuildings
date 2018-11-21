@@ -15,8 +15,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TemperatureSensor extends Sensor {
     private double temperature;
     
-    public TemperatureSensor() {
-        super();
+    public TemperatureSensor(String name) {
+        super(name);
         this.temperature = ThreadLocalRandom.current().nextDouble(18.0, 24.0);
     }
 

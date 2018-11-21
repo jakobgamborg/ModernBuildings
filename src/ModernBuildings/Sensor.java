@@ -13,13 +13,18 @@ import java.util.UUID;
  */
 public class Sensor {
     private UUID id;
+    private String name;
 
-    public Sensor() {
+    public Sensor(String name) {
         this.id = UUID.randomUUID();
+        this.name = name;
     }
 
     public UUID getId() {
         return id;
     }
     
+    public String getName() {
+        return this.name;
+    }
 }

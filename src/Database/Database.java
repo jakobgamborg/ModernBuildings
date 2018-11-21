@@ -5,42 +5,88 @@
  */
 package Database;
 
+import ModernBuildings.Actuator;
 import ModernBuildings.Building;
-import java.util.ArrayList;
-import java.util.List;
+import ModernBuildings.CO2Sensor;
+import java.util.Map;
+import java.util.UUID;
+import ModernBuildings.IBuildingManagementSystem;
+import ModernBuildings.TemperatureSensor;
+import java.util.HashMap;
+import java.util.stream.Collectors;
 
 /**
  *
  * @author Yourk
  */
-public class Database {
-    private List<Building> buildings = new ArrayList<>();
-    
-    public Database() {
-    }
-
-    
-    public Database(List<Building> buildings) {
-        this.buildings = buildings;
-    }
-
-    public List<Building> getBuildings() {
-        return buildings;
-    }
-
-    public void setBuildings(List<Building> buildings) {
-        this.buildings = buildings;
-    }
+public class Database implements IBuildingManagementSystem {
+    private Map<UUID, Building> buildings = new HashMap<>();
     
     public void addBuilding(Building building) {
-        this.buildings.add(building);
+        this.buildings.put(building.getId(), building);
     }
     
-    public void removeBuilding(Building building) {
-        this.buildings.remove(building);
-    } 
+    public void removeBuilding(UUID id) {
+        this.buildings.remove(id);
+    }
     
-    public void printBuildings() {
-        this.buildings.forEach((building)->System.out.println(building));
+    @Override
+    public Map<UUID, String> getBuildingInformation() {
+        return this.buildings.entrySet().stream().collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue().getName()));
+    }
+
+    @Override
+    public Map<UUID, String> getSensorInformation(UUID buildingId) {
+        Building build = this.buildings.get(buildingId);
+        if (build != null) {
+            return build.getSensors().stream().collect(Collectors.toMap(e -> e.getId(),e -> e.getName()));
+        }
+        return null;
+    }
+
+    @Override
+    public Map<UUID, String> getActuatorInformation(UUID buildingId) {
+        Building build = this.buildings.get(buildingId);
+        if (build != null) {
+            return build.getActuators().stream().collect(Collectors.toMap(e -> e.getId(),e -> e.isOpen() + ""));
+        }
+        return null;
+    }
+
+    @Override
+    public UUID addTemperatureSensor(UUID buildingId, String name) {
+        Building building = this.buildings.get(buildingId);
+        if (building != null) {
+            return building.addSensor(new TemperatureSensor(name));
+        }
+        return null;
+    }
+        
+    @Override
+    public UUID addCo2Sensor(UUID buildingId, String name) {
+        Building building = this.buildings.get(buildingId);
+        if (building != null) {
+            return building.addSensor(new CO2Sensor(name));
+        }
+        return null;
+    }
+
+    @Override
+    public void removeSensor(UUID buildingId, UUID sensorId) {
+        this.buildings.get(buildingId).removeSensor(sensorId);
+    }
+
+    @Override
+    public UUID addActuator(UUID buildingId, String name) {
+        Building building = this.buildings.get(buildingId);
+        if (building != null) {
+            return building.addActuator(new Actuator(false, name));
+        }
+        return null;
+    }
+
+    @Override
+    public void removeActuator(UUID buildingId, UUID actuatorId) {
+        this.buildings.get(buildingId).removeActuator(buildingId);
     }
 }
